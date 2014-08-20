@@ -113,12 +113,18 @@ var init = function() {
                 username: username,
                 privateKey: fs.readFileSync(privateKey)
             });
-        } else {
+        } else if(password) {
             tunnel.connect({
                 host: host,
                 port: port,
                 username: username,
                 password: password
+            });
+        } else {
+            tunnel.connect({
+                host: host,
+                port: port,
+                username: username
             });
         }
     };
